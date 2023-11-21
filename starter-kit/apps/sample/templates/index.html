@@ -1,0 +1,84 @@
+{% extends layout_path %}
+
+{% load i18n %}
+
+{% block title %}Web Scraper{% endblock title %}
+
+{% block vendor_js %}
+{{ block.super }}
+<script src="{% static 'vendor/js/dropdown-hover.js' %}"></script>
+<script src="{% static 'vendor/js/mega-dropdown.js' %}"></script>
+{% endblock vendor_js %}
+
+{% block page_js %}
+{{ block.super }}
+<script src="{% static 'js/ui-navbar.js' %}"></script>
+{% endblock page_js %}
+
+{% block content %} 
+<div class="mb-5">
+  <nav class="navbar navbar-example navbar-expand-lg bg-light" style="z-index: 21">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-ex-14">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbar-ex-14">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="javascript:void(0);" data-bs-toggle="dropdown" aria-expanded="false">Computer Science</a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="{% url 'category_articles'%}">Artificial Intelligence</a>
+              <a class="dropdown-item" href="{% url 'category_articles'%}">Information Systems</a>
+              <a class="dropdown-item" href="{% url 'category_articles'%}">Software</a>
+              <a class="dropdown-item" href="{% url 'category_articles'%}">Hardware and Architecture</a>
+              <a class="dropdown-item" href="{% url 'category_articles' %}">Computer Vision and Pattern Recognition</a>
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="javascript:void(0);" data-bs-toggle="dropdown" aria-expanded="false">Medecine</a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="javascript:void(0)">Cardiology and Cardiovascular Medecine</a>
+              <a class="dropdown-item" href="javascript:void(0)">Infectious Diseases</a>
+              <a class="dropdown-item" href="javascript:void(0)">Psychiatry and Mental Health</a>
+              <a class="dropdown-item" href="javascript:void(0)">Radiology and Imaging</a>
+              <a class="dropdown-item" href="javascript:void(0)">Surgery</a>
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="javascript:void(0);" data-bs-toggle="dropdown" aria-expanded="false">Mathematics</a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="javascript:void(0)">Algebra and Number Theory</a>
+              <a class="dropdown-item" href="javascript:void(0)">Analysis</a>
+              <a class="dropdown-item" href="javascript:void(0)">Applied Mathematics</a>
+              <a class="dropdown-item" href="javascript:void(0)">Logic</a>
+              <a class="dropdown-item" href="javascript:void(0)">Statistics and Probability</a>
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="javascript:void(0);" data-bs-toggle="dropdown" aria-expanded="false">Physics and Astronomy</a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="javascript:void(0)">Astronomy and Astrophysics</a>
+              <a class="dropdown-item" href="javascript:void(0)">Atomic and Molecular Physics, and Optics</a>
+              <a class="dropdown-item" href="javascript:void(0)">Condensed Matter Physics</a>
+              <a class="dropdown-item" href="javascript:void(0)">Nuclear and High Energy Physics</a>
+              <a class="dropdown-item" href="javascript:void(0)">Radiation</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</div>
+{% for article in articles %}
+<div class="card mb-4">
+    <div class="card-body">
+        <h5 class="card-title">{{ article.Title }}</h5>
+        <div class="card-subtitle text-muted mb-3">{{ article.Authors }}</div>
+        
+        <a href="#" class="card-link">Read more</a>
+    </div>
+</div>
+{% endfor %}
+{% endblock %}
+ 

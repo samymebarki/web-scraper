@@ -1,0 +1,11 @@
+{
+  "menu": [
+    {
+      "url": "index",
+      "icon": "menu-icon tf-icons ti ti-code",
+      "name": "Web Scraper",
+      "slug": "index"
+    }
+    
+  ]
+}
